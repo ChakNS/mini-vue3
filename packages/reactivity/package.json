@@ -1,0 +1,17 @@
+{
+  "name": "@mini-vue/reactivity",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "buildOptions": {
+    "name": "VueReactivity",
+    "formats": [
+      "esm-bundler",
+      "cjs",
+      "global"
+    ]
+  },
+  "dependencies": {
+    "@mini-vue/shared": "1.0.0"
+  }
+}

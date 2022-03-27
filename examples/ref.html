@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- <script src="./node_modules/@vue/reactivity/dist/reactivity.global.js"></script> -->
+  <script src="../node_modules/@mini-vue/reactivity/dist/reactivity.global.js"></script>
+
+  <script>
+    const { ref, shallowRef, effect } = VueReactivity
+
+    let isShow = ref(true)
+    
+    
+    effect(() => {
+      console.log(isShow.value)
+    })
+
+    setTimeout(() => {
+      isShow.value = false
+    }, 1000)
+    
+    // let refProject = ref({ name: 'vue2', age: { last: 16, curr: 18 } })
+    // // let shallowRefProject = shallowRef({ name: 'vue2', age: { last: 16, curr: 18 } })
+    
+    
+    // effect(() => {
+    //   console.log(refProject.value.age.last)
+    // })
+    // // effect(() => {
+    // //   console.log('shallow', shallowRefProject.value)
+    // //   console.log('shallow', shallowRefProject.value.age.last)
+    // // })
+
+    // setTimeout(() => {
+    //   refProject.value.age.last = 17
+    //   // shallowRefProject.value.age.last = 17
+    // }, 1000)
+  </script>
+</body>
+</html>
