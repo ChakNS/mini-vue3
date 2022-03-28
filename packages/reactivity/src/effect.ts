@@ -63,7 +63,7 @@ export function track(target, type, key) {
 
 // 触发effect
 // 这里需要对数组做两个特殊处理
-export function trigger(target, type, key, newValue, oldValue?) {
+export function trigger(target, type, key, newValue?, oldValue?) {
     const depsMap = targetMap.get(target)
     if (!depsMap) return
 
@@ -93,5 +93,11 @@ export function trigger(target, type, key, newValue, oldValue?) {
       effs && effs.forEach(eff => effectSet.add(eff))
     }
 
-    effectSet.forEach((effect: any) => effect())
+    effectSet.forEach((effect: any) => {
+      if (effect.options.schedular) {
+        effect.options.schedular(effect)
+      } else {
+        effect()
+      }
+    })
 }

@@ -37,6 +37,7 @@ function createSetter(shallow = false) {
     const hasKey = isArray(target) && isIntegerKey(key) ? Number(key) < target.length : hasOwn(target, key)
 
     const res = Reflect.set(target, key, value, receiver)
+    // 源码中还屏蔽了对原型链的操作
     if (!hasKey) {
       // 新增
       trigger(target, 'add', key, value)

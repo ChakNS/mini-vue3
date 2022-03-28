@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app"></div>
+  <!-- runtime-dom 主要放 DOM Api -->
+  <!-- <script src="./node_modules/@vue/runtime-dom/dist/runtime-dom.global.js"></script> -->
+  <script src="../node_modules/@mini-vue/runtime-dom/dist/runtime-dom.global.js"></script>
+
+  <script>
+    console.log(VueRuntimeDOM)
+    // const { createApp, h, ref } = VueRuntimeDOM
+
+    // function useCounter() {
+    //   const count = ref(1)
+    //   const add = () => count.value++
+
+    //   return { add, count }
+    // }
+
+    // const App = {
+    //   setup() {
+    //     let { count, add } = useCounter()
+    //     return () => {
+    //       return h('h1', { onClick: add }, count.value)
+    //     }
+    //   }
+    //   // render: () => {
+    //   //   return h('h1', 'hello vue3')
+    //   // }
+    // }
+
+    // createApp(App).mount('#app')
+  </script>
+</body>
+</html>

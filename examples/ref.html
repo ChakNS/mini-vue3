@@ -11,23 +11,26 @@
   <script src="../node_modules/@mini-vue/reactivity/dist/reactivity.global.js"></script>
 
   <script>
-    const { ref, shallowRef, effect } = VueReactivity
+    const { reactive, ref, toRef, toRefs, shallowRef, effect, computed } = VueReactivity
 
-    let isShow = ref(true)
-    
-    
-    effect(() => {
-      console.log(isShow.value)
-    })
+    /* ref */
 
-    setTimeout(() => {
-      isShow.value = false
-    }, 1000)
+    // let isShow = ref(true)
     
+    
+    // effect(() => {
+    //   console.log(isShow.value)
+    // })
+
+    // setTimeout(() => {
+    //   isShow.value = false
+    // }, 1000)
+    
+    /* shallow effect */
+
     // let refProject = ref({ name: 'vue2', age: { last: 16, curr: 18 } })
     // // let shallowRefProject = shallowRef({ name: 'vue2', age: { last: 16, curr: 18 } })
-    
-    
+
     // effect(() => {
     //   console.log(refProject.value.age.last)
     // })
@@ -40,6 +43,36 @@
     //   refProject.value.age.last = 17
     //   // shallowRefProject.value.age.last = 17
     // }, 1000)
+
+    /* toRef */
+
+    // const proxy = reactive({ name: 'vue2', age: 10 })
+    // const proxy1 = reactive([ref(16), 17, 18])
+    // const nameRef = toRef(proxy, 'name')
+    // const ageRef = toRef(proxy1, 0)
+    // console.log(nameRef)
+    // console.log(ageRef)
+    // console.log(toRefs(proxy1))
+
+
+    /* computed */
+    const proxy = reactive({ name: 'vue2', age: 12 })
+    const dbAge = computed(() => {
+      console.log('run...')
+      return proxy.age * 2
+    })
+    
+    // dbAge.value
+    // dbAge.value
+    // dbAge.value
+    // proxy.age = 30
+    // dbAge.value
+
+    effect(() => {
+      console.log(dbAge.value)
+    })
+
+    proxy.age = 30
   </script>
 </body>
 </html>

@@ -10,7 +10,8 @@
   "type": "module",
   "scripts": {
     "build": "node scripts/build.js",
-    "dev": "node scripts/dev.js reactivity"
+    "dev:reactivity": "node scripts/dev.js reactivity",
+    "dev:runtimeDOM": "node scripts/dev.js runtime-dom"
   },
   "dependencies": {
     "typescript": "^4.6.3"
